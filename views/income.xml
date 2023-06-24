@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <record id="income_view_form" model="ir.ui.view">
+        <field name="name">income_view_form</field>
+        <field name="model">income.money</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="income" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="income_view_tree" model="ir.ui.view">
+        <field name="name">income_view_tree</field>
+        <field name="model">income.money</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="income" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="income_action" model="ir.actions.act_window">
+        <field name="name">Income</field>
+        <field name="res_model">income.money</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help">Your Plan.</field>
+    </record>
+
+    <!-- Flow Money menu -->
+    <menuitem id="menu_income"
+        name="Income"
+        parent="menu_personal_expense_root"
+        sequence="10"
+        action="income_action" />
+</odoo>
