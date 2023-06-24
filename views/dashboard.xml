@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <record id="dashboard_view_form" model="ir.ui.view">
+        <field name="name">dashboard_view_form</field>
+        <field name="model">dashboard.money</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="money_flow_ids" string="Select Month" />
+                </group>
+                <div class="row">
+                    <div class="col bg-primary">
+                        <h4 class="p-1 mb-2 text-white fw-bold fs-5 position-relative py-2 px-4">Total Cash:
+                            <field name="expenses" readonly="True"/>
+                        </h4>
+                    </div>
+                    <div class="col bg-success">
+                        <h4 class="p-1 mb-2 text-white fw-bold fs-5 position-relative py-2 px-4">Total Expenses:
+                            <field name="available_balances" readonly="True"/>
+                        </h4>
+                    </div>
+                    <div class="col bg-warning">
+                        <h4 class="p-1 mb-2 text-white fw-bold fs-5 position-relative py-2 px-4">Available Balance:
+                            <field name="total_incomes" readonly="True"/>
+                        </h4>
+                    </div>
+
+                </div>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="dashboard_action" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">dashboard.money</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+        <field name="help">Your Plan.</field>
+        <field name="target">inline</field>
+    </record>
+
+    <!-- Flow Money menu -->
+    <menuitem id="menu_dashboard"
+        name="Dashboard"
+        parent="menu_personal_expense_root"
+        sequence="0"
+        action="dashboard_action" />
+</odoo>

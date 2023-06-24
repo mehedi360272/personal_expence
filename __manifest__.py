@@ -21,7 +21,9 @@
         'views/income.xml',
         'views/expense.xml',
         'report/money_flow_report.xml',
+        'views/dashboard.xml',
         ],
+
     'installable': True,
     'application': True,
     'assets': {
