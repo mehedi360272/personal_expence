@@ -10,7 +10,7 @@ class MoneyFlow(models.Model):
     _description = ''
     _order = 'issue_date desc'
 
-    _rec_name = 'month'
+    _rec_name = 'month', 'money_type'
     def _default_currency_id(self):
         return self.env.user.company_id.currency_id
 
